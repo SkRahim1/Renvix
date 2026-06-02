@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>Renvix AI-Prospector | Automated Client Acquisition & Outreach CRM</title>
+  <meta name="title" content="Renvix AI-Prospector | Automated Client Acquisition & Outreach CRM">
+  <meta name="description" content="AI-driven prospecting, technical auditing, and outreach CRM suite for Renvix Technologies sales automation. Find local prospects, generate personalized pitches, and manage follow-ups.">
+  <meta name="author" content="Renvix Technologies">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Sidebar Navigation -->
+  <aside class="app-sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-dot"></div>
+      <div class="brand-info">
+        <h1 class="brand-title">Renvix</h1>
+        <span class="brand-subtitle">AI-Prospector Suite</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-menu">
+      <button class="menu-item active" id="menu-prospector" data-view="view-prospector">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Prospector Search
+      </button>
+      
+      <button class="menu-item" id="menu-outreach" data-view="view-outreach">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Outreach Workspace
+      </button>
+
+      <button class="menu-item" id="menu-crm" data-view="view-crm">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        CRM Pipeline Board
+      </button>
+
+      <button class="menu-item" id="menu-analytics" data-view="view-analytics">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        Analytics
+      </button>
+    </nav>
+
+    <div class="sidebar-status">
+      <div class="status-agent">
+        <div class="agent-avatar">R</div>
+        <div class="agent-info">
+          <h5>Renvix Agent</h5>
+          <p><span class="status-dot"></span> Active Prospecting</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main View Area -->
+  <main class="app-main">
+    <div class="bg-grid"></div>
+    <div class="ambient-glow"></div>
+
+    <!-- Header bar -->
+    <header class="main-header">
+      <div class="header-title">
+        <h2 id="view-title">Prospector Search Console</h2>
+        <p id="view-subtitle">Scan local regions for institutions and businesses lacking automation assets.</p>
+      </div>
+      <div class="header-actions">
+        <div class="live-badge">
+          <span class="live-pulse"></span>
+          <span>SYSTEM DISPATCHER ACTIVE</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content panels wrapper -->
+    <div class="main-content">
+
+      <!-- PANEL 1: PROSPECTOR SEARCH -->
+      <section class="view-panel active" id="view-prospector">
+        <div class="search-container">
+          <!-- Input card -->
+          <div class="search-card">
+            <form class="search-form" id="prospector-search-form">
+              <div class="form-group">
+                <label for="search-vertical">Business Niche</label>
+                <select id="search-vertical" class="form-control" required>
+                  <option value="school">Schools & Junior Colleges</option>
+                  <option value="coaching">Coaching Academies & Institutes</option>
+                  <option value="startup">Startups & Agencies</option>
+                  <option value="retail">Retailers & E-commerce Brands</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="search-location">Target Location / City</label>
+                <input type="text" id="search-location" class="form-control" placeholder="e.g. Pune, Bangalore, Delhi" value="Pune" required>
+              </div>
+              <button type="submit" class="btn-search" id="btn-start-search">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                Scan Niche
+              </button>
+            </form>
+          </div>
+
+          <!-- Radar Status Simulation -->
+          <div class="scanner-card">
+            <div class="scanner-radar" id="radar-indicator">
+              <svg class="scanner-icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="scanner-status-text" id="scanner-status-log">Console Idle. Select variables and start scanning.</div>
+            <div class="scanner-progress-bar" id="scanner-progress">
+              <div class="scanner-progress-fill" id="scanner-progress-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scan Results -->
+        <div class="results-card">
+          <div class="results-header">
+            <h3>Discovered Leads</h3>
+            <span id="results-count" style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">0 results found</span>
+          </div>
+          <div class="results-table-wrapper">
+            <table class="results-table" id="prospects-table">
+              <thead>
+                <tr>
+                  <th>Company / Institute</th>
+                  <th>Website Status</th>
+                  <th>WhatsApp Status</th>
+                  <th>AI Chatbot Status</th>
+                  <th>Maturity Grade</th>
+                </tr>
+              </thead>
+              <tbody id="prospects-tbody">
+                <tr>
+                  <td colspan="5" style="text-align: center; color: var(--text-muted); padding: 3rem 0;">
+                    No scans executed yet. Input parameters above to crawl prospects.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- PANEL 2: OUTREACH WORKSPACE -->
+      <section class="view-panel" id="view-outreach">
+        <div class="outreach-container">
+          <!-- Left details card -->
+          <div class="prospect-details-card">
+            <div style="border-bottom: 1px solid var(--border-glow); padding-bottom: 1rem;">
+              <h3 id="outreach-prospect-name" style="font-size: 1.25rem;">No Prospect Selected</h3>
+              <p id="outreach-prospect-niche" style="font-size: 0.8rem; color: var(--accent-secondary); margin-top: 0.25rem;">Niche Detail</p>
+            </div>
+            
+            <div class="detail-row">
+              <span class="detail-label">Website:</span>
+              <span class="detail-value" id="outreach-prospect-url">-</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Email:</span>
+              <span class="detail-value" id="outreach-prospect-email">-</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Phone/WhatsApp:</span>
+              <span class="detail-value" id="outreach-prospect-phone">-</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Maturity Score:</span>
+              <span class="detail-value" id="outreach-prospect-grade">-</span>
+            </div>
+
+            <!-- Custom diagnosis bullets -->
+            <div style="margin-top: 1rem;">
+              <h4 style="font-size: 0.9rem; margin-bottom: 0.75rem; color: var(--text-secondary);">Identified Vulnerabilities:</h4>
+              <ul class="deficiency-list" id="outreach-prospect-vulns" style="gap: 0.5rem;">
+                <li style="color: var(--text-muted); font-size: 0.8rem; list-style: inside;">Select a prospect to view diagnostic details</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Pitch Workspace Form -->
+          <div class="workspace-card">
+            <div class="workspace-tabs">
+              <button class="ws-tab-btn active" data-channel="whatsapp">WhatsApp Template</button>
+              <button class="ws-tab-btn" data-channel="email">Email Draft</button>
+              <button class="ws-tab-btn" data-channel="linkedin">LinkedIn Script</button>
+            </div>
+
+            <div class="workspace-panels">
+              <!-- WhatsApp tab -->
+              <div class="workspace-panel active" id="ws-panel-whatsapp">
+                <div class="cadence-timeline">
+                  <div class="timeline-step active">
+                    <span class="timeline-dot"></span> Day 1 (Intro)
+                  </div>
+                  <div class="timeline-line"></div>
+                  <div class="timeline-step">
+                    <span class="timeline-dot"></span> Day 3 (Case Study)
+                  </div>
+                  <div class="timeline-line"></div>
+                  <div class="timeline-step">
+                    <span class="timeline-dot"></span> Day 5 (Demo Offer)
+                  </div>
+                </div>
+                
+                <div class="pitch-composer">
+                  <textarea class="pitch-textarea" id="textarea-whatsapp" placeholder="WhatsApp message text..."></textarea>
+                </div>
+                
+                <div class="pitch-actions">
+                  <button class="btn-pitch-secondary" id="btn-wa-copy">Copy to Clipboard</button>
+                  <button class="btn-pitch-primary btn-whatsapp-color" id="btn-wa-send">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    Send on WhatsApp
+                  </button>
+                </div>
+              </div>
+
+              <!-- Email tab -->
+              <div class="workspace-panel" id="ws-panel-email">
+                <div class="cadence-timeline">
+                  <div class="timeline-step active">
+                    <span class="timeline-dot"></span> Day 1 (Intro Audit)
+                  </div>
+                  <div class="timeline-line"></div>
+                  <div class="timeline-step">
+                    <span class="timeline-dot"></span> Day 3 (Follow Up)
+                  </div>
+                  <div class="timeline-line"></div>
+                  <div class="timeline-step">
+                    <span class="timeline-dot"></span> Day 5 (Free Demo)
+                  </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 0.75rem;">
+                  <label for="email-subject">Subject Line</label>
+                  <input type="text" id="email-subject" class="form-control" value="Digital Optimization Report for...">
+                </div>
+                
+                <div class="pitch-composer">
+                  <textarea class="pitch-textarea" id="textarea-email" placeholder="Email body text..."></textarea>
+                </div>
+                
+                <div class="pitch-actions">
+                  <button class="btn-pitch-secondary" id="btn-email-copy">Copy Body</button>
+                  <button class="btn-pitch-primary" id="btn-email-send">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    Send Email Pitch
+                  </button>
+                </div>
+              </div>
+
+              <!-- LinkedIn Tab -->
+              <div class="workspace-panel" id="ws-panel-linkedin">
+                <div class="cadence-timeline">
+                  <div class="timeline-step active">
+                    <span class="timeline-dot"></span> Connection Request
+                  </div>
+                  <div class="timeline-line"></div>
+                  <div class="timeline-step">
+                    <span class="timeline-dot"></span> Day 2 (Follow up)
+                  </div>
+                </div>
+                
+                <div class="pitch-composer">
+                  <textarea class="pitch-textarea" id="textarea-linkedin" placeholder="LinkedIn message..."></textarea>
+                </div>
+                
+                <div class="pitch-actions">
+                  <button class="btn-pitch-secondary" id="btn-linkedin-copy">Copy to Clipboard</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PANEL 3: CRM PIPELINE -->
+      <section class="view-panel" id="view-crm">
+        <div class="crm-board" id="crm-board-columns">
+          
+          <!-- Column 1: Discovered -->
+          <div class="crm-column" data-status="discovered">
+            <div class="column-header">
+              <h4>Discovered</h4>
+              <span class="lead-count" id="count-discovered">0</span>
+            </div>
+            <div class="column-list" id="col-discovered">
+              <!-- CRM Cards loaded here -->
+            </div>
+          </div>
+
+          <!-- Column 2: Pitched -->
+          <div class="crm-column" data-status="pitched">
+            <div class="column-header">
+              <h4>Pitched</h4>
+              <span class="lead-count" id="count-pitched">0</span>
+            </div>
+            <div class="column-list" id="col-pitched">
+              <!-- CRM Cards loaded here -->
+            </div>
+          </div>
+
+          <!-- Column 3: Followed Up -->
+          <div class="crm-column" data-status="follow_up">
+            <div class="column-header">
+              <h4>Followed Up</h4>
+              <span class="lead-count" id="count-follow_up">0</span>
+            </div>
+            <div class="column-list" id="col-follow_up">
+              <!-- CRM Cards loaded here -->
+            </div>
+          </div>
+
+          <!-- Column 4: Converted Leads -->
+          <div class="crm-column" data-status="converted">
+            <div class="column-header" style="color: var(--color-success);">
+              <h4>Converted Leads</h4>
+              <span class="lead-count" id="count-converted" style="background: rgba(16,185,129,0.15); color: var(--color-success);">0</span>
+            </div>
+            <div class="column-list" id="col-converted">
+              <!-- CRM Cards loaded here -->
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- PANEL 4: ANALYTICS -->
+      <section class="view-panel" id="view-analytics">
+        <div class="analytics-grid">
+          <div class="stat-card">
+            <div class="stat-content">
+              <h4 id="stat-scanned">0</h4>
+              <p>Total Scanned</p>
+            </div>
+            <div class="stat-icon primary">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-content">
+              <h4 id="stat-pitched">0</h4>
+              <p>Pitched</p>
+            </div>
+            <div class="stat-icon secondary">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-content">
+              <h4 id="stat-replied">0</h4>
+              <p>Responses</p>
+            </div>
+            <div class="stat-icon purple">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-content">
+              <h4 id="stat-leads" style="color: var(--color-success);">0</h4>
+              <p>Leads Won</p>
+            </div>
+            <div class="stat-icon success">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="charts-container">
+          <!-- Conversion funnel (Horizontal SVG Bars) -->
+          <div class="chart-card">
+            <h3>Conversion Funnel Efficiency</h3>
+            <div class="chart-bar-container">
+              <div class="bar-row">
+                <span class="bar-label">Total Prospects</span>
+                <div class="bar-wrapper">
+                  <div class="bar-fill" id="bar-funnel-total" style="width: 100%; background: var(--text-muted);"></div>
+                </div>
+                <span class="bar-value" id="val-funnel-total">0</span>
+              </div>
+              
+              <div class="bar-row">
+                <span class="bar-label">Outreach Pitched</span>
+                <div class="bar-wrapper">
+                  <div class="bar-fill" id="bar-funnel-pitched" style="background: var(--accent-primary);"></div>
+                </div>
+                <span class="bar-value" id="val-funnel-pitched">0</span>
+              </div>
+
+              <div class="bar-row">
+                <span class="bar-label">Follow-up Contact</span>
+                <div class="bar-wrapper">
+                  <div class="bar-fill" id="bar-funnel-follow"></div>
+                </div>
+                <span class="bar-value" id="val-funnel-follow">0</span>
+              </div>
+
+              <div class="bar-row">
+                <span class="bar-label">Converted Lead</span>
+                <div class="bar-wrapper">
+                  <div class="bar-fill" id="bar-funnel-converted" style="background: var(--color-success);"></div>
+                </div>
+                <span class="bar-value" id="val-funnel-converted">0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Niche breakdown pie chart -->
+          <div class="chart-card">
+            <h3>Opportunity Breakdown by Niche</h3>
+            <div class="chart-pie-wrapper">
+              <svg width="150" height="150" viewBox="0 0 36 36" class="svg-pie">
+                <circle cx="18" cy="18" r="15.915" fill="none" stroke="#121829" stroke-width="4.2"></circle>
+                
+                <!-- School Slice -->
+                <circle cx="18" cy="18" r="15.915" fill="none" class="pie-segment" id="pie-school"
+                        stroke="var(--accent-secondary)" stroke-dasharray="0 100" stroke-dashoffset="0"></circle>
+                <!-- Coaching Slice -->
+                <circle cx="18" cy="18" r="15.915" fill="none" class="pie-segment" id="pie-coaching"
+                        stroke="var(--accent-primary)" stroke-dasharray="0 100" stroke-dashoffset="0"></circle>
+                <!-- Startup Slice -->
+                <circle cx="18" cy="18" r="15.915" fill="none" class="pie-segment" id="pie-startup"
+                        stroke="var(--accent-purple)" stroke-dasharray="0 100" stroke-dashoffset="0"></circle>
+                <!-- Retail Slice -->
+                <circle cx="18" cy="18" r="15.915" fill="none" class="pie-segment" id="pie-retail"
+                        stroke="var(--color-success)" stroke-dasharray="0 100" stroke-dashoffset="0"></circle>
+              </svg>
+              
+              <div class="pie-legend">
+                <div class="legend-item">
+                  <span class="legend-color" style="background: var(--accent-secondary);"></span>
+                  <span>Schools (<span id="pie-lbl-school">0%</span>)</span>
+                </div>
+                <div class="legend-item">
+                  <span class="legend-color" style="background: var(--accent-primary);"></span>
+                  <span>Coaching (<span id="pie-lbl-coaching">0%</span>)</span>
+                </div>
+                <div class="legend-item">
+                  <span class="legend-color" style="background: var(--accent-purple);"></span>
+                  <span>Startups (<span id="pie-lbl-startup">0%</span>)</span>
+                </div>
+                <div class="legend-item">
+                  <span class="legend-color" style="background: var(--color-success);"></span>
+                  <span>Retail (<span id="pie-lbl-retail">0%</span>)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- SIDE AUDIT PANEL (DRAWER) -->
+  <div class="audit-drawer" id="site-audit-drawer">
+    <div class="drawer-header">
+      <div class="drawer-title">
+        <h3 id="audit-company-name">Company Name</h3>
+        <p id="audit-company-url">companywebsite.com</p>
+      </div>
+      <button class="btn-close-drawer" id="btn-close-audit" aria-label="Close details panel">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    
+    <div class="drawer-body">
+      <div class="audit-score-card">
+        <div>
+          <h4 style="font-size: 1rem; margin-bottom: 0.15rem;">Digital Strength Index</h4>
+          <p style="font-size: 0.75rem; color: var(--text-secondary);">Automated Renvix Tech Assessment</p>
+        </div>
+        <div class="badge-grade audit-grade-large" id="audit-grade-badge">C</div>
+      </div>
+
+      <div>
+        <h4 style="font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em;">Technical Assessment Gaps</h4>
+        <div class="deficiency-list" id="audit-gaps-list">
+          <!-- Gaps loaded dynamically -->
+        </div>
+      </div>
+
+      <div class="opportunity-card">
+        <div class="opp-header">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          Renvix Pitch Opportunity
+        </div>
+        <div class="opp-body">
+          <h4 id="opp-package-name">Recommended Package</h4>
+          <p id="opp-package-desc">Recommendation explanation based on shortcomings...</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="drawer-footer">
+      <button class="btn-drawer-action btn-drawer-pitch" id="btn-drawer-open-workspace">
+        Configure Outreach Pitch
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- TOAST FEED Overlay -->
+  <div class="notification-stream" id="toast-notifications-container">
+    <!-- Automated activity logs slide in here -->
+  </div>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
