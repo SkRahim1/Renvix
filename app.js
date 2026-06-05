@@ -288,7 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const formRight = document.getElementById('contact-form-right');
   
   // TODO: Replace this with your Google Apps Script Web App URL after deploying it
-  const GOOGLE_SHEET_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
+  const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxGNsuUGAOvJlIlK5-Vi0EvOp8Y0941POHFI1IHbGBoUpLsaxqAn4KmfYsMYE3yzwQ3Ug/exec';
 
   if (leadForm && formRight) {
     leadForm.addEventListener('submit', (e) => {
