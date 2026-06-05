@@ -286,6 +286,9 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================================================== */
   const leadForm = document.getElementById('lead-form');
   const formRight = document.getElementById('contact-form-right');
+  
+  // TODO: Replace this with your Google Apps Script Web App URL after deploying it
+  const GOOGLE_SHEET_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
 
   if (leadForm && formRight) {
     leadForm.addEventListener('submit', (e) => {
@@ -300,13 +303,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const phone = document.getElementById('form-phone').value;
       const needSelect = document.getElementById('form-need');
       const needText = needSelect.options[needSelect.selectedIndex].text;
+      const message = document.getElementById('form-message').value;
       
       // Disable inputs and button, show loading spinner text
       submitBtn.setAttribute('disabled', 'true');
       submitBtn.innerHTML = 'Securing Connection...';
       
-      // Simulate API submit delay (1.5 seconds)
-      setTimeout(() => {
+      const showSuccessUI = () => {
         // Transition form wrapper content with beautiful visual success message
         formRight.style.opacity = '0';
         formRight.style.transform = 'translateY(15px)';
@@ -335,8 +338,44 @@ document.addEventListener('DOMContentLoaded', () => {
           formRight.style.opacity = '1';
           formRight.style.transform = 'translateY(0)';
         }, 500);
-        
-      }, 1500);
+      };
+
+      if (GOOGLE_SHEET_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') {
+        // Simulate API submit delay (1.5 seconds) for local/placeholder testing
+        setTimeout(() => {
+          showSuccessUI();
+        }, 1500);
+      } else {
+        // Real submit to Google Sheet via Google Apps Script
+        fetch(GOOGLE_SHEET_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            phone: phone,
+            interest: needText,
+            message: message
+          })
+        })
+        .then(response => response.json())
+        .then(result => {
+          if (result.result === 'success') {
+            showSuccessUI();
+          } else {
+            throw new Error(result.error || 'Server error');
+          }
+        })
+        .catch(error => {
+          console.error('Submission error:', error);
+          // Re-enable button and show error message
+          submitBtn.removeAttribute('disabled');
+          submitBtn.innerHTML = originalBtnText;
+          alert('Submission failed. Please check your network connection and try again.');
+        });
+      }
     });
   }
 
