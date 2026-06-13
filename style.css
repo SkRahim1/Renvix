@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
 /* --- DESIGN SYSTEM & TOKENS --- */
 :root {
   --font-heading: 'Outfit', sans-serif;
@@ -572,7 +578,7 @@ input, textarea, button {
 /* --- SERVICES SECTION --- */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
 }
 
@@ -1758,6 +1764,43 @@ textarea.form-input {
 
   .msg-bubble {
     font-size: 0.85rem;
+  }
+
+  /* Scale down the hero visual on mobile to prevent overflow zoom out */
+  .graphic-container {
+    max-width: 290px;
+    margin: 0 auto;
+  }
+  .core-sphere {
+    width: 90px;
+    height: 90px;
+  }
+  .core-logo-inner {
+    font-size: 1.8rem;
+  }
+  .floating-node {
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+  }
+  .floating-node span {
+    font-size: 0.75rem;
+  }
+  .node-icon-wrapper {
+    width: 24px;
+    height: 24px;
+  }
+  /* Reposition nodes slightly inward to prevent overflow */
+  .node-2 {
+    right: 2%;
+  }
+  .node-1 {
+    left: 2%;
+  }
+  .node-3 {
+    left: 5%;
+  }
+  .node-4 {
+    right: 2%;
   }
 }
 
