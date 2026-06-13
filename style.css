@@ -1765,7 +1765,7 @@ textarea.form-input {
 .whatsapp-float {
   position: fixed;
   bottom: 24px;
-  left: 24px;
+  right: 24px;
   width: 60px;
   height: 60px;
   background-color: #25D366;
@@ -1802,9 +1802,9 @@ textarea.form-input {
 .whatsapp-float::after {
   content: 'Chat with us';
   position: absolute;
-  left: 75px;
+  right: 75px;
   top: 50%;
-  transform: translateY(-50%) translateX(-15px);
+  transform: translateY(-50%) translateX(15px);
   background: rgba(13, 18, 34, 0.95);
   color: #fff;
   padding: 6px 12px;
@@ -1841,7 +1841,7 @@ textarea.form-input {
 @media (max-width: 768px) {
   .whatsapp-float {
     bottom: 20px;
-    left: 20px;
+    right: 20px;
     width: 52px;
     height: 52px;
   }
