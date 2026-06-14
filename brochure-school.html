@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Renvix Technologies — School Brochure</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    :root {
+      --blue:    #1a56db;
+      --blue-dk: #1240a8;
+      --teal:    #0d9488;
+      --gold:    #f59e0b;
+      --dark:    #0f172a;
+      --gray:    #64748b;
+      --light:   #f8fafc;
+      --white:   #ffffff;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #e2e8f0;
+      color: var(--dark);
+    }
+
+    /* ── PAGE WRAPPER ── */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      background: var(--white);
+      margin: 20px auto;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      position: relative;
+    }
+
+    /* ═══════════════════════════════
+       PAGE 1 — FRONT
+    ═══════════════════════════════ */
+
+    /* ── HEADER BAND ── */
+    .header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1a56db 100%);
+      padding: 28px 36px 22px;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: 30%;
+      width: 160px; height: 160px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 50%;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-dot {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, #60a5fa, #818cf8);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
+      color: white;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .logo-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+    .logo-text span {
+      display: block;
+      font-size: 10px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .header-badge {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 10px;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.5px;
+    }
+
+    /* ── HERO SECTION ── */
+    .hero {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1a56db 50%, #0d9488 100%);
+      padding: 38px 36px 42px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -40px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 10px;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-tag::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: #4ade80;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 30px;
+      font-weight: 900;
+      color: white;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(90deg, #fde68a, #fbbf24);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      max-width: 440px;
+      position: relative;
+      z-index: 2;
+      margin-bottom: 24px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 20px;
+      position: relative;
+      z-index: 2;
+    }
+    .stat-box {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 10px;
+      padding: 12px 18px;
+      text-align: center;
+    }
+    .stat-box .val {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: #fde68a;
+      line-height: 1;
+    }
+    .stat-box .lbl {
+      font-size: 9.5px;
+      color: rgba(255,255,255,0.7);
+      margin-top: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── PAIN POINTS ── */
+    .pain-section {
+      background: #fef9ec;
+      border-left: 4px solid var(--gold);
+      margin: 22px 28px;
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+    }
+    .pain-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #92400e;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .pain-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      color: #78350f;
+    }
+    .pain-item::before {
+      content: '✗';
+      color: #ef4444;
+      font-weight: 700;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      padding: 20px 28px 12px;
+    }
+    .section-tag {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 5px;
+    }
+    .section-title h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+    .section-title h2 span {
+      color: var(--blue);
+    }
+
+    /* ── FEATURES GRID ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding: 0 28px 20px;
+    }
+    .feature-card {
+      background: var(--light);
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--teal));
+    }
+    .feature-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+    .feature-card h4 {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+    .feature-card p {
+      font-size: 10.5px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+      margin: 4px 28px;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .steps-row {
+      display: flex;
+      gap: 0;
+      padding: 12px 28px 20px;
+      position: relative;
+    }
+    .steps-row::before {
+      content: '';
+      position: absolute;
+      top: 32px;
+      left: 58px;
+      right: 58px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--teal));
+      z-index: 0;
+    }
+    .step {
+      flex: 1;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .step-circle {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 8px;
+      font-size: 16px;
+      color: white;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(26,86,219,0.35);
+    }
+    .step h5 {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 3px;
+    }
+    .step p {
+      font-size: 9px;
+      color: var(--gray);
+      line-height: 1.5;
+      padding: 0 4px;
+    }
+
+    /* ── TESTIMONIAL / HIGHLIGHT ── */
+    .highlight-box {
+      margin: 4px 28px 20px;
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      border-radius: 14px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+    .highlight-box::after {
+      content: '"';
+      position: absolute;
+      top: -10px; right: 16px;
+      font-size: 100px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
+      color: rgba(255,255,255,0.05);
+      line-height: 1;
+    }
+    .highlight-avatar {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #60a5fa, #818cf8);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .highlight-text p {
+      font-size: 11.5px;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.7;
+      font-style: italic;
+    }
+    .highlight-author {
+      font-size: 10px;
+      color: #93c5fd;
+      margin-top: 6px;
+      font-weight: 600;
+      font-style: normal;
+    }
+
+    /* ── CONTACT FOOTER ── */
+    .contact-footer {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      padding: 20px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .contact-footer .cta-text h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 3px;
+    }
+    .contact-footer .cta-text p {
+      font-size: 10px;
+      color: rgba(255,255,255,0.6);
+    }
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      color: rgba(255,255,255,0.85);
+    }
+    .contact-item .icon {
+      width: 24px; height: 24px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.12);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+    .free-pill {
+      background: linear-gradient(135deg, var(--teal), #059669);
+      border-radius: 10px;
+      padding: 14px 18px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .free-pill span {
+      display: block;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      color: white;
+      font-size: 11px;
+      line-height: 1.4;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── PRINT BUTTON (screen only) ── */
+    .print-btn {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 20px;
+      font-family: 'Inter', sans-serif;
+    }
+    .print-btn button {
+      background: linear-gradient(135deg, #1a56db, #0d9488);
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.3px;
+      box-shadow: 0 8px 24px rgba(26,86,219,0.35);
+      transition: transform 0.2s;
+    }
+    .print-btn button:hover { transform: translateY(-2px); }
+    .print-btn .hint {
+      font-size: 11px;
+      color: #64748b;
+      text-align: center;
+      margin-top: 6px;
+    }
+
+    @media print {
+      body { background: white; }
+      .print-btn { display: none; }
+      .page {
+        margin: 0;
+        box-shadow: none;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- PRINT BUTTON (only shows on screen) -->
+<div class="print-btn">
+  <div>
+    <button onclick="window.print()">🖨️ Save as PDF / Print</button>
+    <p class="hint">Chrome → Print → Save as PDF → A4 size → Background graphics ON</p>
+  </div>
+</div>
+
+<!-- ═══════ PAGE ═══════ -->
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <div class="logo-dot">R</div>
+        <div class="logo-text">
+          Renvix
+          <span>Technologies</span>
+        </div>
+      </div>
+      <div class="header-badge">📍 Hyderabad, India</div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">Exclusively For Schools & Institutes</div>
+    <h1>Run Your School<br>Smarter. Not <em>Harder.</em></h1>
+    <p class="hero-sub">
+      We digitize your school's fee collection, attendance, parent communication, and mark cards — 
+      all in one powerful system built specifically for Indian schools.
+    </p>
+    <div class="hero-stats">
+      <div class="stat-box">
+        <div class="val">40+</div>
+        <div class="lbl">Admin Hours<br>Saved/Week</div>
+      </div>
+      <div class="stat-box">
+        <div class="val">95%</div>
+        <div class="lbl">Less Manual<br>Paperwork</div>
+      </div>
+      <div class="stat-box">
+        <div class="val">3x</div>
+        <div class="lbl">Faster Fee<br>Collection</div>
+      </div>
+      <div class="stat-box">
+        <div class="val">100%</div>
+        <div class="lbl">Parent<br>Connected</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAIN POINTS -->
+  <div class="pain-section">
+    <div class="pain-title">⚠️ Is Your School Still Dealing With These Problems?</div>
+    <div class="pain-grid">
+      <div class="pain-item">Staff spending hours on manual fee registers</div>
+      <div class="pain-item">Parents unaware of fee due dates</div>
+      <div class="pain-item">Attendance recorded in paper registers</div>
+      <div class="pain-item">Mark cards typed manually each term</div>
+      <div class="pain-item">No way to send bulk WhatsApp to parents</div>
+      <div class="pain-item">Student data scattered across files</div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="section-title">
+    <span class="section-tag">Our School ERP Solution</span>
+    <h2>Everything Your School Needs, <span>In One Place</span></h2>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">💰</div>
+      <h4>Smart Fee Management</h4>
+      <p>Collect fees digitally, generate instant receipts, and track pending dues in real time. Auto-reminders sent to parents via WhatsApp.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📲</div>
+      <h4>WhatsApp Parent Alerts</h4>
+      <p>Send fee reminders, exam schedules, holidays, and marks directly to parents' WhatsApp — automatically, with one click.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">✅</div>
+      <h4>Digital Attendance System</h4>
+      <p>Teachers mark attendance on phone or tablet. Parents notified instantly if their child is absent. Zero paper registers.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <h4>Auto Mark Card Generator</h4>
+      <p>Enter marks once and generate beautiful digital mark cards automatically for every student. Print or send via WhatsApp.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">👤</div>
+      <h4>Student Information Portal</h4>
+      <p>All student data — contact, history, documents — stored securely in one searchable system. Find any student in seconds.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📈</div>
+      <h4>Admin Dashboard</h4>
+      <p>See live reports: collections, attendance rates, class performance — all in one powerful principal's dashboard.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- HOW IT WORKS -->
+  <div class="section-title">
+    <span class="section-tag">Simple Process</span>
+    <h2>Up & Running in <span>7 Days</span></h2>
+  </div>
+
+  <div class="steps-row">
+    <div class="step">
+      <div class="step-circle">📞</div>
+      <h5>Free Call</h5>
+      <p>We understand your school's specific needs</p>
+    </div>
+    <div class="step">
+      <div class="step-circle">🎨</div>
+      <h5>We Design</h5>
+      <p>Custom system built for your school</p>
+    </div>
+    <div class="step">
+      <div class="step-circle">🚀</div>
+      <h5>We Launch</h5>
+      <p>Staff trained, system goes live</p>
+    </div>
+    <div class="step">
+      <div class="step-circle">🛠️</div>
+      <h5>We Support</h5>
+      <p>24/7 support whenever you need us</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- HIGHLIGHT BOX -->
+  <div class="highlight-box">
+    <div class="highlight-avatar">🏫</div>
+    <div class="highlight-text">
+      <p>"Before Renvix, our staff spent 3 days every month just on fee records.
+         Now everything is automatic — parents get WhatsApp reminders, fees come
+         in on time, and our admin team finally has time for actual teaching support."</p>
+      <div class="highlight-author">— School Administrator, Hyderabad Institute</div>
+    </div>
+  </div>
+
+  <!-- CONTACT FOOTER -->
+  <div class="contact-footer">
+    <div class="cta-text">
+      <h3>📞 Book Your Free Demo Today</h3>
+      <p>See the system live before you decide anything</p>
+    </div>
+    <div class="contact-items">
+      <div class="contact-item">
+        <div class="icon">📱</div>
+        <span>+91 9284306159 (Call / WhatsApp)</span>
+      </div>
+      <div class="contact-item">
+        <div class="icon">🌐</div>
+        <span>www.renvixteach.in</span>
+      </div>
+      <div class="contact-item">
+        <div class="icon">✉️</div>
+        <span>info@renvixteach.in</span>
+      </div>
+    </div>
+    <div class="free-pill">
+      <span>FREE</span>
+      <span>Consultation</span>
+      <span>& Demo</span>
+    </div>
+  </div>
+
+</div>
+<!-- end page -->
+
+</body>
+</html>
