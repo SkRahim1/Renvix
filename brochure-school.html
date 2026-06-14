@@ -33,13 +33,15 @@
 
     /* ── PAGE WRAPPER ── */
     .page {
-      width: 210mm;
-      min-height: 297mm;
+      width: 100%;
+      max-width: 800px;
+      min-height: auto;
       background: var(--white);
-      margin: 20px auto;
+      margin: 40px auto;
       overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
       position: relative;
+      border-radius: 16px;
     }
 
     /* ═══════════════════════════════
@@ -491,55 +493,123 @@
       letter-spacing: 0.3px;
     }
 
-    /* ── PRINT BUTTON (screen only) ── */
-    .print-btn {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      padding: 20px;
-      font-family: 'Inter', sans-serif;
-    }
-    .print-btn button {
-      background: linear-gradient(135deg, #1a56db, #0d9488);
-      color: white;
-      border: none;
-      padding: 14px 32px;
-      border-radius: 10px;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-      letter-spacing: 0.3px;
-      box-shadow: 0 8px 24px rgba(26,86,219,0.35);
-      transition: transform 0.2s;
-    }
-    .print-btn button:hover { transform: translateY(-2px); }
-    .print-btn .hint {
-      font-size: 11px;
-      color: #64748b;
-      text-align: center;
-      margin-top: 6px;
-    }
-
-    @media print {
-      body { background: white; }
-      .print-btn { display: none; }
+    /* ── MOBILE RESPONSIVENESS ── */
+    @media (max-width: 768px) {
+      body {
+        background: #f8fafc;
+      }
       .page {
         margin: 0;
+        border-radius: 0;
         box-shadow: none;
+      }
+      .header {
+        padding: 24px 20px 18px;
+      }
+      .logo-text {
+        font-size: 20px;
+      }
+      .hero {
+        padding: 30px 20px 35px;
+      }
+      .hero h1 {
+        font-size: 26px;
+      }
+      .hero-sub {
+        font-size: 12px;
+      }
+      .hero-stats {
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .stat-box {
+        flex: 1 1 calc(50% - 6px);
+        padding: 10px 14px;
+      }
+      .stat-box .val {
+        font-size: 20px;
+      }
+      .pain-section {
+        margin: 20px;
+        padding: 14px 16px;
+      }
+      .pain-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .section-title {
+        padding: 20px 20px 10px;
+      }
+      .section-title h2 {
+        font-size: 18px;
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 0 20px 20px;
+      }
+      .divider {
+        margin: 4px 20px;
+      }
+      .steps-row {
+        flex-direction: column;
+        gap: 20px;
+        padding: 12px 20px 20px;
+      }
+      .steps-row::before {
+        display: none;
+      }
+      .step {
+        display: flex;
+        text-align: left;
+        align-items: center;
+        gap: 16px;
+      }
+      .step-circle {
+        margin: 0;
+        flex-shrink: 0;
+      }
+      .highlight-box {
+        margin: 4px 20px 20px;
+        padding: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .contact-footer {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 24px 20px;
+        gap: 20px;
+      }
+      .contact-footer .cta-text {
+        text-align: center;
+      }
+      .contact-items {
+        align-items: center;
+      }
+      .free-pill {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 22px;
+      }
+      .hero-stats {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .stat-box {
         width: 100%;
       }
     }
   </style>
 </head>
 <body>
-
-<!-- PRINT BUTTON (only shows on screen) -->
-<div class="print-btn">
-  <div>
-    <button onclick="window.print()">🖨️ Save as PDF / Print</button>
-    <p class="hint">Chrome → Print → Save as PDF → A4 size → Background graphics ON</p>
-  </div>
-</div>
 
 <!-- ═══════ PAGE ═══════ -->
 <div class="page">
