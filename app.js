@@ -55,6 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.section-header'),
     document.getElementById('services-header'),
     ...document.querySelectorAll('.service-card'),
+    document.getElementById('products-header'),
+    ...document.querySelectorAll('.product-card'),
     document.getElementById('about-content-left'),
     document.getElementById('about-visual-right'),
     document.getElementById('solutions-header'),
