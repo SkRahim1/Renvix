@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Renvix Technologies — School Brochure</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png?v=1.2">
+  <link rel="apple-touch-icon" href="logo_icon.png?v=1.2">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     * {
@@ -85,15 +88,10 @@
       align-items: center;
       gap: 10px;
     }
-    .logo-dot {
-      width: 36px; height: 36px;
-      background: linear-gradient(135deg, #60a5fa, #818cf8);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 900;
-      color: white;
-      font-size: 18px;
+    .logo-img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
       flex-shrink: 0;
     }
     .logo-text {
@@ -618,7 +616,7 @@
   <div class="header">
     <div class="header-inner">
       <div class="logo-wrap">
-        <div class="logo-dot">R</div>
+        <img src="logo_icon.png" alt="Renvix Technologies Logo" class="logo-img">
         <div class="logo-text">
           Renvix
           <span>Technologies</span>
