@@ -132,13 +132,13 @@ input, textarea, button {
 }
 
 .section-title {
-  font-size: 2.75rem;
-  line-height: 1.2;
+  font-size: 2.2rem;
+  line-height: 1.25;
   margin-bottom: 1.25rem;
 }
 
 .section-subtitle {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--text-secondary);
 }
 
@@ -426,16 +426,16 @@ input, textarea, button {
 }
 
 .hero-title {
-  font-size: 4rem;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
+  font-size: 2.8rem;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
 }
 
 .hero-description {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: var(--text-secondary);
-  margin-bottom: 2.5rem;
-  max-width: 540px;
+  margin-bottom: 2rem;
+  max-width: 500px;
 }
 
 .hero-actions {
@@ -452,13 +452,13 @@ input, textarea, button {
 }
 
 .stat-item h4 {
-  font-size: 2.25rem;
+  font-size: 1.75rem;
   margin-bottom: 0.25rem;
   font-weight: 800;
 }
 
 .stat-item p {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -659,8 +659,8 @@ input, textarea, button {
 }
 
 .service-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
   font-weight: 700;
 }
 
@@ -801,8 +801,8 @@ input, textarea, button {
 }
 
 .product-card h3 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  margin-bottom: 0.85rem;
   font-weight: 800;
   color: #fff;
 }
@@ -887,21 +887,21 @@ input, textarea, button {
 }
 
 .about-title {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.25;
 }
 
 .about-desc-primary {
-  font-size: 1.15rem;
+  font-size: 1rem;
   color: var(--text-primary);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   font-weight: 500;
 }
 
 .about-desc-secondary {
   color: var(--text-secondary);
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .about-benefits {
@@ -1120,14 +1120,14 @@ input, textarea, button {
 }
 
 .tab-content h3 {
-  font-size: 2.25rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.7rem;
+  margin-bottom: 1.25rem;
 }
 
 .tab-content p {
   color: var(--text-secondary);
-  margin-bottom: 2.5rem;
-  font-size: 1.05rem;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
 }
 
 .tab-features {
@@ -1179,7 +1179,7 @@ input, textarea, button {
 }
 
 .segment-metric-val {
-  font-size: 2rem;
+  font-size: 1.65rem;
   font-weight: 800;
   color: var(--accent-secondary);
   font-family: var(--font-heading);
@@ -2150,11 +2150,11 @@ textarea.form-input {
   }
 
   .section-title {
-    font-size: 2.25rem;
+    font-size: 1.9rem;
   }
 
   .hero-title {
-    font-size: 3rem;
+    font-size: 2.4rem;
   }
 
   .hero-grid {
