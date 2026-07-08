@@ -55,12 +55,17 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.section-header'),
     document.getElementById('services-header'),
     ...document.querySelectorAll('.service-card'),
+    document.getElementById('pricing-header'),
+    document.getElementById('pricing-badges'),
+    ...document.querySelectorAll('.pricing-card'),
     document.getElementById('products-header'),
     ...document.querySelectorAll('.product-card'),
     document.getElementById('about-content-left'),
     document.getElementById('about-visual-right'),
     document.getElementById('solutions-header'),
     document.getElementById('audience-tabs'),
+    document.getElementById('faq-header'),
+    ...document.querySelectorAll('.faq-item'),
     document.getElementById('demo-content-left'),
     document.getElementById('demo-card-right'),
     document.getElementById('contact-info-left'),
@@ -398,5 +403,85 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 3000);
     });
   }
+
+
+  /* ==========================================================================
+     7. PRICING PACKAGE CTA BUTTONS
+     ========================================================================== */
+  const pricingBtns = document.querySelectorAll('.pricing-cta-btn');
+
+  pricingBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const planName = btn.getAttribute('data-plan') || '';
+      const needValue = btn.getAttribute('data-need') || 'website';
+
+      // Smooth scroll to contact section
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      // After scroll animation completes, pre-fill the form
+      setTimeout(() => {
+        // Select the right dropdown option
+        const needSelect = document.getElementById('form-need');
+        if (needSelect) {
+          for (let i = 0; i < needSelect.options.length; i++) {
+            if (needSelect.options[i].value === needValue) {
+              needSelect.selectedIndex = i;
+              // Trigger floating label update
+              needSelect.dispatchEvent(new Event('change'));
+              break;
+            }
+          }
+        }
+
+        // Pre-populate the message textarea
+        const msgArea = document.getElementById('form-message');
+        if (msgArea && planName) {
+          msgArea.value = `Hi! I am interested in the ${planName}. Please share more details and a custom quote.`;
+          // Trigger floating label update
+          msgArea.dispatchEvent(new Event('input'));
+        }
+
+        // Focus the name field
+        const nameField = document.getElementById('form-name');
+        if (nameField) nameField.focus();
+      }, 900);
+    });
+  });
+
+
+  /* ==========================================================================
+     8. FAQ ACCORDION
+     ========================================================================== */
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    if (!question) return;
+
+    question.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+
+      // Close all other FAQs
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.classList.remove('open');
+          const otherQ = otherItem.querySelector('.faq-question');
+          if (otherQ) otherQ.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Toggle current
+      if (isOpen) {
+        item.classList.remove('open');
+        question.setAttribute('aria-expanded', 'false');
+      } else {
+        item.classList.add('open');
+        question.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
 
 });
